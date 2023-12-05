@@ -1,0 +1,222 @@
+@import url(../../components/total.css);
+@import url(/components/card.css);
+
+.page {
+  height: 900px;
+  width: 100%;
+}
+
+.full_page {
+  /* background-image: url(https://s2.loli.net/2023/06/24/G6dC8Z71hSXzN2n.jpg); */
+  background-image: url(https://s2.loli.net/2023/10/28/mRxk7ZgGOyTbtPV.jpg);
+  height: 50vw;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--card_radius);
+}
+
+.show_text {
+  height: 60px;
+  line-height: 60px;
+  font-size: 2.8em;
+  display: inline-block;
+  position: relative;
+  font-weight: 700;
+  color: #fff;
+  font-family: "宋体";
+}
+.show_text::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 3px;
+  height: 50px;
+  width: 3px;
+  background-color: #fff;
+  animation: san 1s steps(1) infinite;
+}
+@keyframes san {
+  /*闪烁效果*/
+  0%,
+  100% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: transparent;
+  }
+}
+
+.scroll {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.arrow {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+}
+.arrow::after {
+  width: 17px;
+  height: 17px;
+  border-right: 5px solid #fff;
+  border-top: 5px solid #fff;
+  transform: rotate(135deg);
+  position: absolute;
+  bottom: 25px;
+  content: "";
+  animation: arrow 1s ease-in infinite alternate;
+  left: 55%;
+}
+
+@keyframes arrow {
+  0% {
+    transform: rotate(135deg) translate(20px, 0px);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: rotate(135deg) translate(0px, 20px); /*在x轴上移动50px，y轴上移动50px*/
+    opacity: 0.3;
+  }
+}
+
+
+.post_cards {
+  width: 60%;
+  height: 100%;
+  padding-top: 50px;
+  .cards_item {
+    width: 100%;
+    height: 21%;
+    margin: 15px 0px;
+    overflow: hidden;
+    display: flex;
+    opacity: 1;
+    & img {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 375ms ease-in .2s,transform .6s;
+      transition-duration: 375ms, 0.6s;
+      transition-timing-function: ease-in, ease;
+      transition-delay: 0.2s, 0s;
+      transition-property: filter, transform;
+      &:hover{
+        /*图片不超出容器，只有内部变大*/
+        transform: scale(1.1);
+      }
+    }
+    &:nth-child(even){
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+  }
+.bw_intr{
+  padding: 50px 20px 30px 30px; 
+  overflow: hidden;   
+  & a{
+    color:#1F2D3D;
+    font-size: 24px;
+    font-weight: normal;
+    
+    &:hover{
+      color: #ff7242;
+    }
+  }
+  .article_meta{
+    margin: 10px 0px;
+    & span{
+      font-size: 12px;
+      color: #858585;
+      border-right: 2px solid #858585;
+      padding-right: 10px;
+    }
+  }
+  .article_cut{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-size: 14px;
+    overflow: hidden;
+    color: #4C4948;
+    -webkit-line-clamp:3;
+    text-overflow: ellipsis;
+  }
+
+}
+.select_p{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+
+    
+
+    & a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
+      margin: 5px;
+      color:#99a9bf ;
+      &:first-child{
+        background-color: #00c4b6;
+        color: #fff;
+      }
+    }
+    & a:hover{
+      background-color: #ff7242;
+      color: #fff;
+    }
+  }
+  
+}
+
+footer{
+  height: 136px;
+  min-height: 136px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards_item {
+  transform: translate(0, 400px) scale(0);
+  transition: 1.5s;
+}
+.aside_card{
+  transform: translate(0, 400px) scale(0);
+  transition: 1.5s;
+}
+.active {
+  transform: translate(0, 0) scale(1);
+  transition: 1s;
+  animation: card 1s ease-in-out;
+}
+@keyframes card {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,254 @@
+:root {
+    --background-color:linear-gradient(90deg,
+            rgba(247, 149, 51, 0.1) 0,
+            rgba(243, 112, 85, 0.1) 15%,
+            rgba(239, 78, 123, 0.1) 30%,
+            rgba(161, 102, 171, 0.1) 44%,
+            rgba(80, 115, 184, 0.1) 58%,
+            rgba(16, 152, 173, 0.1) 72%,
+            rgba(7, 179, 155, 0.1) 86%,
+            rgba(109, 186, 130, 0.1) 100%);
+
+   --card-box-shadow:0 3px 8px 6px rgba(7,17,27,0.05);
+   --card-hover-box-shadow:0 3px 8px 6px rgba(7,17,27,0.09);
+   --text-hover: rgba(73,177,245,0.7);
+   --card_background_color: hsla(0,0%,100%,0.5);
+   --card_radius:8px;
+   --scrollbar-color: #49b1f5;
+   --blockquote-bg:rgba(73,177,245,0.1);
+   --blockquote-color: #6a737d;
+   --light-grey: #eee;
+   --font-color: #4c4948;
+   --sidebar-bg: #f6f8fa;
+   --hover--color: #49b1f5;
+
+}
+/*滑动条样式*/
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #49b1f5;
+    background-image: -webkit-linear-gradient(45deg,hsla(0,0%,100%,.4) 25%,transparent 0,transparent 50%,hsla(0,0%,100%,.4) 0,hsla(0,0%,100%,.4) 75%,transparent 0,transparent);
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(73,177,245,.2);
+    border-radius: 2em;
+}
+/*滑动条样式*/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: #1F2D3D;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Lato,Roboto,"PingFang SC","Microsoft JhengHei","Microsoft YaHei",sans-serif;
+ 
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #1F2D3D;
+}
+
+/* html, body {
+    min-height: 100vh;
+    height: auto;
+} */
+
+/*导航栏样式*/
+.nav {
+    height: 60px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    align-items: center;
+    padding-left: 20px;
+    padding-top: 40px;
+    width: 100%;
+    z-index: 11111111;
+ 
+}
+.site-name {
+    color: #eee;
+    font-family: Titillium Web, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .15);
+    font-weight: 700;
+    font-size: 18px;
+    width: 70%;
+    padding-left: 20px;
+}
+.site-name:hover{
+    color:#fff;
+    text-shadow: none
+}
+.menus {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+    padding-right: 70px;
+
+}
+
+.menu-item {
+    /* font-family: Titillium Web, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif; */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .15);
+    font-weight: 700;
+    font-size: 15px;
+    color:#eee;
+    padding: 3px;
+    width: 80px;
+    text-align: center;
+    position: relative;
+}
+.menu-item{
+    & i,span{
+    color: var(--light-grey);
+    }
+}
+.menu-item::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px; /* 下划线的高度 */
+    background-color: var(--hover--color);/* 下划线颜色 */
+    bottom:  2px;
+    left: 4px; /* 初始位置在最左侧 */
+    transition: width 0.3s ease;
+    text-shadow: none /* 过渡效果，调整时间以控制填充速度 */
+  }
+.menu-item:hover{
+    color:#fff;
+  }
+.menu-item:hover::after{
+    width: 95%; /* 鼠标悬停时，宽度变为 100%，从左到右填充 */
+  }
+
+/*导航栏样式*/
+.item_child{
+    position: absolute;
+    right: 0;
+    display: none;
+    margin-top: 8px;
+    padding: 0;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px -4px rgba(0,0,0,.5);
+    background-color: var(--sidebar-bg);
+    animation: sub_menus .3s .1s ease both;
+
+}
+@keyframes sub_menus{
+    0%{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.item_child li{
+    
+    & a{
+    display: inline-block;
+    padding: 8px 16px;
+    width: 100%;
+    color: var(--font-color)!important;
+    text-shadow: none!important;
+    }
+    &:hover{
+        background-color: var(--hover--color);
+        &:first-child{
+            border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+        }
+        &:last-child {
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+    }
+}
+.item_child:before {
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    content: '';
+}
+.menu-item:hover .item_child{
+    display: block;
+    transition: all 0.5s ease;
+}
+.menu-item:hover .fa-chevron-down{
+    transform: rotate(180deg);
+    transition: transform 0.5s ease;
+}
+
+
+main{
+    /* min-height: 1200px; */
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+}
+body {
+    background-image: var(--background-color);
+    font-family: -apple-system ;
+     display: flex;
+    flex-direction: column;
+} 
+
+
+
+/*卡片样式*/
+.card{
+    /* height: 18em;
+    width: 18em; */
+    /* margin: 1em; */
+    box-shadow: var(--card-box-shadow);
+    border-radius: var(--card_radius);
+    background-color: var(--card_background_color);
+
+}
+.card:hover{
+    box-shadow: var(--card-hover-box-shadow);
+}
+/* footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-width: 136px;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.active {
+    transform: translate(0, 0) scale(1);
+    transition: 1s;
+    animation: card 1s ease-in-out;
+  }
+@keyframes card {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+  

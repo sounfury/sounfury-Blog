@@ -1,0 +1,55 @@
+
+@import url(/components/total.css);
+@import url(/components/card.css);
+@import url(/pages/bw/bw.css);
+body,html{
+    height: 100%;
+}
+.page_header{
+    background-image: url(https://s2.loli.net/2023/06/24/G6dC8Z71hSXzN2n.jpg);
+    object-fit: cover;
+  
+    background-size: cover;
+    width: 100%;
+    height: 400px;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .title{
+        line-height: 1.5;
+    }
+    & span{
+        border-right: 1;
+    }
+}
+
+.container{
+    width: 60%;
+    height: 100%;
+    margin: 0px 0px 0px 20px;
+    padding-top: 65px;
+}
+.article{
+    box-sizing: border-box;
+    padding: 50px 40px;
+}
+.aside_content
+{
+    height: 100%;
+
+}
+.card5{
+    padding: 20px 24px;
+    position:sticky;
+    top: 20px;
+
+}
+footer{
+    height: 136px;
+    min-height: 136px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

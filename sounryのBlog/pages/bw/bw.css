@@ -1,0 +1,98 @@
+body{
+    color:#4c4948;
+}
+.article{
+    line-height: 2;
+}
+.article img {
+  display: block;
+  /* object-fit: cover; */
+  max-height: 500px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+}
+.article p {
+  margin: 0 0 8px;
+}
+.article{
+  & h1,h2,h3,h4,h5,h6{
+  font-weight: 700;
+  margin: 20px 0 14px;
+}
+}
+.article h1 {
+  font-size: 2em;
+}
+blockquote {
+  margin: 0 0 20px;
+  padding: 12px 15px;
+  border-left: 3px solid #49b1f5;
+  background-color: var(--blockquote-bg);
+  color: var(--blockquote-color);
+}
+table thead {
+  background: rgba(153, 169, 191, 0.1);
+}
+table {
+  display: table;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  empty-cells: show;
+  margin: 0 0 20px;
+}
+table td,
+table th {
+  padding: 6px 12px;
+  border: 1px solid var(--light-grey);
+  vertical-align: middle;
+}
+.article ul{
+    padding-left: 40px;
+  
+ & li {
+    list-style-type: circle;
+  }
+} 
+.article ol {
+    padding-left: 40px;
+  & li {
+    list-style-type: decimal;
+  }
+}
+.article li::marker {
+  color: #49b1f5;
+  font-weight: 600;
+  font-size: 1.05em;
+}
+.article li:hover::marker {
+  color: rgb(255,126,83);;
+}
+.article a {
+  color: #49b1f5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  &:hover {
+    color: rgb(255,126,83);
+    text-decoration: underline;
+  }
+}
+.headline{
+    padding-bottom: 6px;
+    font-size: 1.2em;
+    & span{
+        margin-left: 6px;
+    }
+}
+.itemClass {
+    border-left: #8b8a8a 3px solid;
+    padding: 0 20px;
+    & :hover{
+        color: #49b1f5;
+    }
+}
+.itemClass a{
+    color:#666261;
+    padding: 1px 6px;
+}
